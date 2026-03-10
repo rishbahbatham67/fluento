@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background:        0 0% 99%;
+  --foreground:        0 0% 6%;
+  --muted:             30 10% 94%;
+  --muted-foreground:  0 0% 44%;
+  --border:            30 8% 88%;
+  --card:              30 10% 97%;
+  --accent:            30 15% 92%;
+  --accent-foreground: 0 0% 6%;
+}
+
+.dark {
+  --background:        0 0% 4%;
+  --foreground:        30 8% 94%;
+  --muted:             0 0% 10%;
+  --muted-foreground:  0 0% 52%;
+  --border:            0 0% 14%;
+  --card:              0 0% 7%;
+  --accent:            0 0% 9%;
+  --accent-foreground: 30 8% 94%;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: var(--font-mono), ui-monospace, 'Courier New', monospace;
+  font-size: 1rem;
+  line-height: 1.65;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+::selection { background: hsl(var(--foreground) / 0.12); }
+
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 99px; }
+
+.spinner-fade-top {
+  background: linear-gradient(to bottom, hsl(var(--background)) 0%, hsl(var(--background) / 0.85) 50%, transparent 100%);
+}
+.spinner-fade-bottom {
+  background: linear-gradient(to top, hsl(var(--background)) 0%, hsl(var(--background) / 0.85) 50%, transparent 100%);
+}
+
+/* Mode card hover inversion */
+.mode-card {
+  background: hsl(var(--background));
+  border-bottom: 1px solid hsl(var(--border));
+  border-right: 1px solid hsl(var(--border));
+  padding: 2.5rem;
+  display: block;
+  transition: background 0.3s ease;
+  text-decoration: none;
+}
+.mode-card:hover { background: hsl(var(--foreground)); }
+
+.mode-card .card-num,
+.mode-card .card-desc,
+.mode-card .card-cta { color: hsl(var(--muted-foreground)); transition: color 0.3s ease; }
+
+.mode-card .card-title { color: hsl(var(--foreground)); transition: color 0.3s ease; }
+
+.mode-card:hover .card-num,
+.mode-card:hover .card-title,
+.mode-card:hover .card-desc,
+.mode-card:hover .card-cta { color: hsl(var(--background)); }
+
+/* ── Mode card dark mode fix ─────────────────────────────────────────────── */
+.dark .mode-card:hover {
+  background: hsl(var(--foreground));
+}
+.dark .mode-card:hover .card-num,
+.dark .mode-card:hover .card-title,
+.dark .mode-card:hover .card-desc,
+.dark .mode-card:hover .card-cta {
+  color: hsl(var(--background));
+}

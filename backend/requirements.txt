@@ -1,0 +1,33 @@
+# ── Web framework ─────────────────────────────────────────────────────────
+fastapi==0.115.5
+uvicorn[standard]==0.32.1
+
+# ── Database ──────────────────────────────────────────────────────────────
+sqlalchemy==2.0.36
+
+# ── Pydantic + settings ───────────────────────────────────────────────────
+pydantic==2.10.3
+pydantic-settings==2.6.1
+
+# ── File uploads ──────────────────────────────────────────────────────────
+python-multipart==0.0.18
+aiofiles==24.1.0
+
+# ── HTTP client (LLM API calls) ───────────────────────────────────────────
+httpx==0.28.0
+
+# ── Whisper speech-to-text ────────────────────────────────────────────────
+# faster-whisper is the preferred backend (faster + lighter)
+# openai-whisper is the fallback if faster-whisper fails to install
+faster-whisper==1.1.0
+
+# ── Auth (JWT + password hashing — used when OAuth is wired) ─────────────
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+
+# ── Environment variables ─────────────────────────────────────────────────
+python-dotenv==1.0.1
+
+# ── Utilities ─────────────────────────────────────────────────────────────
+# annotated-types is required by pydantic v2 internally
+annotated-types==0.7.0
